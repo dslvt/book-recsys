@@ -3,21 +3,17 @@ import pandas as pd
 
 
 class PopularRecommender:
-    def __init__(
-        self, max_K=100, days=30, item_column="item_id", dt_column="date"
-    ):
+    def __init__(self, max_K=100, days=30, **kwargs):
         self.max_K = max_K
         self.days = days
-        self.item_column = item_column
-        self.dt_column = dt_column
         self.recommendations = []
 
     def fit(self, df):
-        min_date = df[self.dt_column].max().normalize() - pd.DateOffset(
+        min_date = df["start_date"].max().normalize() - pd.DateOffset(
             days=self.days
         )
         self.recommendations = (
-            df.loc[df[self.dt_column] > min_date, self.item_column]
+            df.loc[df["start_date"] > min_date, "item_id"]
             .value_counts()
             .head(self.max_K)
             .index.values
