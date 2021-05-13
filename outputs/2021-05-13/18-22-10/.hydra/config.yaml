@@ -1,0 +1,4 @@
+model:
+  kind: PopularRecommenderAll
+  max_K: 100
+  days: 30
