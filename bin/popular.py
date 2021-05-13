@@ -5,6 +5,7 @@ import hydra
 sys.path.append(".")
 from pipeline.models.PopularRecommender import PopularRecommender
 from pipeline.models.RecommenderByGender import PopularByGender
+from pipeline.models.RecommenderByAge import PopularByAge
 from pipeline.models.Stub import Stub
 from pipeline.data.poprec_sample import get_data
 
@@ -14,6 +15,8 @@ def get_model(kind="Stub", **kwargs):
         return PopularRecommender(**kwargs)
     elif kind == "RecommenderByGender":
         return PopularByGender(**kwargs)
+    elif kind == "RecommenderByAge":
+        return PopularByAge(**kwargs)
     else:
         return Stub
 
