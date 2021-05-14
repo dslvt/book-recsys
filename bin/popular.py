@@ -9,6 +9,7 @@ from pipeline.models.RecommenderByAge import PopularByAge
 from pipeline.models.RecommenderWithAgeDistribution import (
     PopularWithAgeDistribution,
 )
+from pipeline.models.RecommenderByGenderAndAge import PopularByAgeAndGender
 from pipeline.models.Stub import Stub
 from pipeline.data.poprec_sample import get_data
 
@@ -22,6 +23,8 @@ def get_model(kind="Stub", **kwargs):
         return PopularByAge(**kwargs)
     elif kind == "PopularWithAgeDistribution":
         return PopularWithAgeDistribution(**kwargs)
+    elif kind == "RecommenderByGenderAndAge":
+        return PopularByAgeAndGender(**kwargs)
     else:
         return Stub
 
