@@ -1,0 +1,4 @@
+model:
+  kind: PopularWithAgeDistribution
+  max_K: 100
+  days: 30
