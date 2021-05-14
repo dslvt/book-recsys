@@ -1,0 +1,4 @@
+model:
+  kind: PopularWithoutReaded
+  max_K: 100
+  days: 30

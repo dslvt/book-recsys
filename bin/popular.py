@@ -10,6 +10,7 @@ from pipeline.models.RecommenderWithAgeDistribution import (
     PopularWithAgeDistribution,
 )
 from pipeline.models.RecommenderByGenderAndAge import PopularByAgeAndGender
+from pipeline.models.RecRemoveReadedBooks import PopularWithoutReaded
 from pipeline.models.Stub import Stub
 from pipeline.data.poprec_sample import get_data
 
@@ -25,6 +26,8 @@ def get_model(kind="Stub", **kwargs):
         return PopularWithAgeDistribution(**kwargs)
     elif kind == "RecommenderByGenderAndAge":
         return PopularByAgeAndGender(**kwargs)
+    elif kind == "PopularWithoutReaded":
+        return PopularWithoutReaded(**kwargs)
     else:
         return Stub
 
